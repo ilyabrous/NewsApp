@@ -7,6 +7,6 @@
         android:title="Saved News"
         android:icon="@drawable/ic_favorite"/>
     <item android:id="@+id/searchNewsFragment"
-        android:title="Breaking News"
+        android:title="Search News"
         android:icon="@drawable/ic_all_news"/>
 </menu>

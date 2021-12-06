@@ -1,5 +1,6 @@
 package com.project.mvvmnewsapp.model.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,11 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     }
 
     val differ = AsyncListDiffer(this, diffCallback)
+        get() {
+        Log.d("diff_log", "diff: ${field.currentList.size}")
+        return field
+    }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
@@ -40,14 +46,15 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         val article = differ.currentList[position]
 
         holder.itemView.apply {
+
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublishedAt.text = article.publishedAt
-            tvSource.text = article.source.name
+            tvSource.text = article.source?.name
 
             Glide.with(this).load(article.urlToImage).into(ivArticleImage)
 
-            setOnItemClickListener {
+            setOnClickListener {
                 onItemClickListener?.let { it(article)}
             }
 
@@ -60,5 +67,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         onItemClickListener = listener
     }
 
-    inner class ArticleViewHolder(articleView : View) : RecyclerView.ViewHolder(articleView)
+    inner class ArticleViewHolder(articleView : View) : RecyclerView.ViewHolder(articleView){
+        init {
+            articleView.clipToOutline = true
+        }
+    }
 }

@@ -10,7 +10,7 @@ import com.project.mvvmnewsapp.model.util.Article
 
 @Database(
     entities = [Article::class],
-    version = 1
+    version = 2
 )
 @TypeConverters(SourceTypeConverter::class)
 abstract class ArticleDatabase : RoomDatabase(){

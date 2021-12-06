@@ -8,6 +8,12 @@ class Constants {
 
         const val SEARCH_DELAY = 500L
 
+        const val QUERY_PAGE_SIZE = 20
+
+        const val HORIZONTAL_OFFSET = 10
+
+        const val VERTICAL_OFFSET = 30
+
     }
 
 
