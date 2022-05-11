@@ -1,7 +1,7 @@
 # NewsApp
 News app for getting breaking news, saving your news, search news by query
 
-Use - https://newsapi.org/
+Used API - https://newsapi.org/
 
 Stack: MVVM, Coroutines, Retrofit, Room
 
